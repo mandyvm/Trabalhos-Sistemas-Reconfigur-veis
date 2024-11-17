@@ -1,0 +1,46 @@
+-- TRABALHO PRÁTICO 2 DA DISCIPLINA DE SISTEMAS RECONFIGURÁVEIS
+-- ALUNA: AMANDA VEIGA DE MOURA (737475)
+-- TURMA: TERÇA-FEIRA 20:50
+-- 2024/2
+-- OBJETIVO DO TRABALHO: Criar um W_reg conforme documentação
+
+------------------------------------------------------------------------------------------------------------------------------
+--bibliotecas
+
+LIBRARY ieee;
+USE ieee.std_logic_1164.all;
+USE ieee.numeric_std.all;
+USE ieee.std_logic_unsigned.all;
+
+ENTITY W_reg IS 
+	PORT (
+	
+	nrst: IN STD_LOGIC; --entrada de reset assíncrono
+						-- ativada = nível baixo (0) => bits zerados "00000000"					
+	clk_in: IN STD_LOGIC; --entrada clock para escrita no registrador
+ 	                      -- escrita (se habilitada) ocorre na subida do clock 
+	d_in: IN STD_LOGIC_VECTOR(7 DOWNTO 0); -- entrada de dados para escrita no registrador
+										   -- habilita a partir de wr_en
+	wr_en: IN STD_LOGIC; -- entrada de habilitação para escrita no registrador
+						 -- ativada = nível alto (1) => sincrono com o clock, será escrito o valor de d_in
+	
+	w_out: OUT STD_LOGIC_VECTOR(7 DOWNTO 0) -- saida de dados do registrador
+	);
+END ENTITY;
+
+ARCHITECTURE ARCH OF W_reg IS	
+
+BEGIN
+
+	process(clk_in, nrst)
+	BEGIN
+		IF nrst = '0' THEN --nível baixo para nrst
+			w_out <= (others => '0'); -- saída será 0's
+		ELSIF rising_edge(clk_in) THEN --caso contrário subida do clk 
+			IF wr_en = '1' THEN -- wr_en nível alto
+				w_out <= d_in; --saída será os valores de d_in
+			END IF;
+		END IF;
+	END PROCESS;
+
+END ARCH;

@@ -1,0 +1,43 @@
+|W_reg
+nrst => w_out[0]~reg0.ACLR
+nrst => w_out[1]~reg0.ACLR
+nrst => w_out[2]~reg0.ACLR
+nrst => w_out[3]~reg0.ACLR
+nrst => w_out[4]~reg0.ACLR
+nrst => w_out[5]~reg0.ACLR
+nrst => w_out[6]~reg0.ACLR
+nrst => w_out[7]~reg0.ACLR
+clk_in => w_out[0]~reg0.CLK
+clk_in => w_out[1]~reg0.CLK
+clk_in => w_out[2]~reg0.CLK
+clk_in => w_out[3]~reg0.CLK
+clk_in => w_out[4]~reg0.CLK
+clk_in => w_out[5]~reg0.CLK
+clk_in => w_out[6]~reg0.CLK
+clk_in => w_out[7]~reg0.CLK
+d_in[0] => w_out[0]~reg0.DATAIN
+d_in[1] => w_out[1]~reg0.DATAIN
+d_in[2] => w_out[2]~reg0.DATAIN
+d_in[3] => w_out[3]~reg0.DATAIN
+d_in[4] => w_out[4]~reg0.DATAIN
+d_in[5] => w_out[5]~reg0.DATAIN
+d_in[6] => w_out[6]~reg0.DATAIN
+d_in[7] => w_out[7]~reg0.DATAIN
+wr_en => w_out[7]~reg0.ENA
+wr_en => w_out[6]~reg0.ENA
+wr_en => w_out[5]~reg0.ENA
+wr_en => w_out[4]~reg0.ENA
+wr_en => w_out[3]~reg0.ENA
+wr_en => w_out[2]~reg0.ENA
+wr_en => w_out[1]~reg0.ENA
+wr_en => w_out[0]~reg0.ENA
+w_out[0] <= w_out[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+w_out[1] <= w_out[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+w_out[2] <= w_out[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+w_out[3] <= w_out[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+w_out[4] <= w_out[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+w_out[5] <= w_out[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+w_out[6] <= w_out[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+w_out[7] <= w_out[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
